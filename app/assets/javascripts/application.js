@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require underscore
+//= require lodash
 //= require backbone
 //= require scratch_pad
 //= require_tree ../templates
