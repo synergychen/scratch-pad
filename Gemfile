@@ -29,6 +29,11 @@ gem 'backbone-on-rails', '~> 1.1.0.0'
 gem 'lodash-rails', '~> 2.2.1'
 gem 'js-routes', '~> 0.8.4'
 
+group :development do
+  gem 'pry'
+  gem 'rb-readline'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
