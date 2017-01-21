@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require js-routes
 //= require lodash
 //= require backbone
 //= require scratch_pad
