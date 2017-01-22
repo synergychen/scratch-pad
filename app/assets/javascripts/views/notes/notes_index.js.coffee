@@ -1,14 +1,11 @@
 class ScratchPad.Views.NotesIndex extends Backbone.View
-  template: JST['notes/index']
-
-  events:
-    "click .note-link": "showNote"
+  template: JST["notes/index"]
 
   render: ->
-    @$el.html(@template(notes: @collection))
+    @$el.html(@template())
+    @collection.forEach(@renderNote)
     this
 
-  showNote: (e) ->
-    url = $(e.target).attr("href")
-    Backbone.history.navigate(url, trigger: true)
-    false # equal to e.preventDefault()
+  renderNote: (note) =>
+    view = new ScratchPad.Views.NoteShow(model: note, tagName: "li")
+    @$("#notes").append(view.render().el)

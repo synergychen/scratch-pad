@@ -1,0 +1,2 @@
+<div><a href="#" class="edit-note"><%= @note.get("title") %></a></div>
+<div><%= @note.get("content") %></div>

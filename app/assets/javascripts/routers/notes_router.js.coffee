@@ -1,7 +1,7 @@
 class ScratchPad.Routers.Notes extends Backbone.Router
   routes:
     "(notes)"   : "index"
-    "notes/:id" : "show"
+    "notes/:id" : "showNote"
 
   index: ->
     view = new ScratchPad.Views.NotesIndex(
@@ -10,7 +10,7 @@ class ScratchPad.Routers.Notes extends Backbone.Router
     )
     view.render()
 
-  show: (id) ->
+  showNote: (id) ->
     model = ScratchPad.AllNotes.get(id)
     view = new ScratchPad.Views.NoteEdit(
       model: model
