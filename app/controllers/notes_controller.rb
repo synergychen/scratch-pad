@@ -1,31 +1,33 @@
 class NotesController < ApplicationController
   respond_to :html, only: [:index]
-  respond_to :json
+  respond_to :json, only: [:index, :create, :update, :destroy]
 
   def index
-    respond_with Note.all
+    respond_with notes
   end
 
   def create
-    respond_with Note.create(note_params)
-  end
-
-  def show
+    note = Note.create(note_params)
     respond_with note
   end
 
   def update
-    respond_with note.update_attributes(note_params)
+    note.update_attributes(note_params)
+    respond_with note
   end
 
   def destroy
-    respond_with note
+    respond_with note.destroy
   end
 
   private
 
+  def notes
+    @_notes ||= Note.all
+  end
+
   def note
-    Note.find(params[:id])
+    @_note ||= Note.find(params[:id])
   end
 
   def note_params

@@ -1,14 +1,19 @@
 class ScratchPad.Routers.Notes extends Backbone.Router
   routes:
-    ""          : "index"
-
-  initialize: ->
-    @collection = new ScratchPad.Collections.Notes()
-    @collection.fetch()
+    "(notes)"   : "index"
+    "notes/:id" : "show"
 
   index: ->
     view = new ScratchPad.Views.NotesIndex(
-      collection: @collection
+      collection: ScratchPad.AllNotes
+      el: "#container"
+    )
+    view.render()
+
+  show: (id) ->
+    model = ScratchPad.AllNotes.get(id)
+    view = new ScratchPad.Views.NoteEdit(
+      model: model
       el: "#container"
     )
     view.render()

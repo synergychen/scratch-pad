@@ -1,3 +1,8 @@
-<% for note in @notes.models: %>
-  <li><%= note.get("title") %> : <%= note.get("content") %></li>
-<% end %>
+<ul>
+  <% for note in @notes.models: %>
+    <li>
+      <div><a href="<%= note.url() %>" class="note-link"><%= note.get("title") %></a></div>
+      <div><%= note.get("content") %></div>
+    </li>
+  <% end %>
+</ul>
