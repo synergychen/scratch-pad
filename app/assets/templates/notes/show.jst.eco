@@ -1,2 +1,7 @@
-<div><a href="#" class="edit-note"><%= @note.get("title") %></a></div>
-<div><%= @note.get("content") %></div>
+<header class="title-container">
+  <input type="text" class="note-title" value="<%= @note.get('title') %>" />
+</header>
+
+<div class="body">
+  <textarea class="note-content"><%= @note.get("content") %></textarea>
+</div>
