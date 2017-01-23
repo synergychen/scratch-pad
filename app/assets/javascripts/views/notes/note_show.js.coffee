@@ -6,6 +6,7 @@ class ScratchPad.Views.NoteShow extends Backbone.View
   events:
     "change": "save"
     "keydown .note-title": "blueIfEnter"
+    "click .destroy-note": "destroyNote"
 
   render: ->
     @$el.html(@template(note: @model))
@@ -22,3 +23,8 @@ class ScratchPad.Views.NoteShow extends Backbone.View
   blueIfEnter: (e) ->
     if e.keyCode == 13
       @$(":input").blur()
+
+  destroyNote: ->
+    @model.destroy()
+    @remove()
+    false
