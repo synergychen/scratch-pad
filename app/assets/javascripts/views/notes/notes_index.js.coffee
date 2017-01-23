@@ -5,7 +5,7 @@ class ScratchPad.Views.NotesIndex extends Backbone.View
     @addAction = new ScratchPad.Views.AddAction(
       collection: ScratchPad.AllNotes
     )
-    @listenTo(@collection, "add", @render)
+    @listenTo(@collection, "add", @renderNote)
 
   render: ->
     @$el.html(@template())
